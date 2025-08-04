@@ -5,9 +5,7 @@ extends Node
 func finish():
 	var player = get_node("/root/Main/Player")
 	EventController.emit_signal("level_completed")
-	player.reset_position()
-	print("finish")
-	
+	player.reset_position()	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
