@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dax5k3q20h0vl"]
+
+[ext_resource type="Script" uid="uid://c104ih4pyfqin" path="res://scripts/hud.gd" id="1_37p78"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_64ctp"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00:00:000"
+label_settings = SubResource("LabelSettings_64ctp")

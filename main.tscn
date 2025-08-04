@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=4 uid="uid://dwhp7ceqdk700"]
+
+[ext_resource type="Script" uid="uid://d34obxf1u0qty" path="res://scripts/main.gd" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://bqfw1pnlyo34h" path="res://scripts/player.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://db3dh0r85lth0" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://brcl0igwuyr6b" path="res://red.PNG" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dax5k3q20h0vl" path="res://hud.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://o3vnyhj5e10f" path="res://finish.tscn" id="6_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(52, 48.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
+texture = ExtResource("3_1bvp3")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_7mycd"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lquwl")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1bvp3")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-9, -8)
+script = ExtResource("1_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(322, 377.75)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(322, 378)
+scale = Vector2(0.40625, 0.382813)
+texture = ExtResource("1_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(322, 378)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAJAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAARAA4AAAAAAAAAAAASAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAADAA4AAAAAAAAAAAACAA4AAAAAAAAAAAABAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAANAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAAPAA4AAAAAAAAAAAATAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_7mycd")
+
+[node name="HUD" parent="." instance=ExtResource("5_lquwl")]
+offset = Vector2(0, 50)
+transform = Transform2D(1, 0, 0, 1, 0, 50)
+
+[node name="Finish" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(658, 430)
