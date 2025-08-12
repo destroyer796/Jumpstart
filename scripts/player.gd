@@ -1,7 +1,6 @@
 class_name Player extends CharacterBody2D
 
-
-const SPEED = 500.0
+const SPEED = 20.0
 const JUMP_VELOCITY = -500.0
 
 
@@ -18,11 +17,13 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x += direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED/5)
 
 	move_and_slide()
 
 func reset_position():
 	position = Vector2(0, 0)
+	velocity.x = 0
+	velocity.y = 0
