@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
-const SPEED = 20.0
-const JUMP_VELOCITY = -500.0
+const SPEED = 10.0
+const JUMP_VELOCITY = -950.0
 
 
 func _physics_process(delta: float) -> void:
@@ -22,6 +22,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED/5)
 
 	move_and_slide()
+	
+	if position.y > 1000:
+		position = Vector2(0,0)
+		velocity.x = 0
+		velocity.y = 0
 
 func reset_position():
 	position = Vector2(0, 0)
