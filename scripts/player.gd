@@ -24,9 +24,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if position.y > 1000:
-		position = Vector2(0,0)
-		velocity.x = 0
-		velocity.y = 0
+		reset_position()
+		HUD.reset_timer()
 
 func reset_position():
 	position = Vector2(0, 0)

@@ -4,11 +4,18 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_64ctp"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_37p78")
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_right = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.5
+offset_right = 36.5
 offset_bottom = 23.0
+grow_horizontal = 2
+pivot_offset = Vector2(36, 0)
 text = "00:00:000"
 label_settings = SubResource("LabelSettings_64ctp")
+horizontal_alignment = 1

@@ -4466,7 +4466,7 @@ sources/0 = SubResource("TileSetAtlasSource_7mycd")
 script = ExtResource("1_1bvp3")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-156, 355)
+position = Vector2(-164, 355)
 script = ExtResource("1_h2yge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -4492,5 +4492,5 @@ offset = Vector2(0, 50)
 transform = Transform2D(1, 0, 0, 1, 0, 50)
 
 [node name="Finish" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(-42966, -86)
-scale = Vector2(1, 1)
+position = Vector2(-42932, -78)
+scale = Vector2(3, 3)
